@@ -17,7 +17,7 @@ const RadioButton = () => {
         checked={selectedOption === "option1"}
         onChange={handleOptionChange}
       />
-      <label htmlFor="option1">Option 1</label>
+      <label htmlFor="option1">Celcius</label>
 
       <input
         type="radio"
@@ -27,7 +27,7 @@ const RadioButton = () => {
         checked={selectedOption === "option2"}
         onChange={handleOptionChange}
       />
-      <label htmlFor="option2">Option 2</label>
+      <label htmlFor="option2">Fahrenheit</label>
     </div>
   );
 };

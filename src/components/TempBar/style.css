@@ -1,5 +1,5 @@
  .tempbar{
-  background-color: #35526D;
+  background-color: #286CB2;
   height: 120px;
   width: 38px;
   border-radius: 8px;
@@ -9,6 +9,9 @@
 }
 
 .tempbar__temp{
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
   background-color: #F6D476;
   /* height: 20%; */
   /* dyanimic heihg */

@@ -2,7 +2,30 @@
   width: 240px;
   height: 240px;
   border-radius: 24px;
-  background-color: #0A457B;
+  background-color: #286DB2;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
 }
 
+.weather-icon{
+  position: absolute;
+  bottom:  50%;
+  /* width: 138px; */
+  /* height: 108px; */
+}
 
+.info-card__temp{
+  color:#F6D476;
+  font-weight:bold;
+  font-size: 64px;
+}
+
+.info-card__date{
+  font-size: 24px;
+  color: #ffff;
+}
