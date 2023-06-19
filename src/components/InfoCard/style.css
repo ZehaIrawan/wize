@@ -29,3 +29,15 @@
   font-size: 24px;
   color: #ffff;
 }
+
+.next-button{
+  position: absolute;
+  left: 270px;
+  bottom:100px;
+}
+
+.prev-button{
+  position: absolute;
+  right: 270px;
+  bottom:100px;
+}

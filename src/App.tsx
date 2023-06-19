@@ -12,8 +12,6 @@ function App() {
 
   return (
     <>
-    
-
       <RadioButton />
 
       <InfoCard />
@@ -22,6 +20,7 @@ function App() {
           return <TembBar key={index} height={item} />;
         })}
       </TembarGroup>
+      {/* <div className="overlay"></div> */}
     </>
   );
 }
