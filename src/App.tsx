@@ -4,14 +4,17 @@ import TembBar from "./components/TempBar/TempBar";
 import TembarGroup from "./components/TempBarGroup/TembarGroup";
 
 function App() {
-  const weatherData = Array(8).fill("item");
+  const weatherData = Array.from(
+    { length: 8 },
+    () => Math.floor(Math.random() * 100) + 1,
+  );
 
   return (
     <>
       <InfoCard />
       <TembarGroup>
         {weatherData.map((item, index) => {
-          return <TembBar key={index} />;
+          return <TembBar key={index} height={item} />;
         })}
       </TembarGroup>
     </>

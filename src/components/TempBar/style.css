@@ -10,7 +10,7 @@
 
 .tempbar__temp{
   background-color: #F6D476;
-  height: 20%;
+  /* height: 20%; */
   /* dyanimic heihg */
   border-radius: 0px 0px 8px 8px;
   /* if full height */
