@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { ChangeEvent } from "react";
 
-const RadioButton: React.FC = () => {
-  const [selectedOption, setSelectedOption] = useState<string>("option1");
+interface Props {
+  selectedOption: string;
+  setSelectedOption: (option: string) => void;
+}
 
-  const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+const RadioButton: React.FC<Props> = ({
+  selectedOption,
+  setSelectedOption,
+}) => {
+  const handleOptionChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSelectedOption(event.target.value);
   };
 
@@ -12,24 +18,24 @@ const RadioButton: React.FC = () => {
       <input
         className="custom-radio-button"
         type="radio"
-        id="option1"
+        id="celcius"
         name="option"
-        value="option1"
-        checked={selectedOption === "option1"}
+        value="celcius"
+        checked={selectedOption === "celcius"}
         onChange={handleOptionChange}
       />
-      <label htmlFor="option1">Celsius</label>
+      <label htmlFor="celcius">Celsius</label>
 
       <input
         className="custom-radio-button"
         type="radio"
-        id="option2"
+        id="fahrenheit"
         name="option"
-        value="option2"
-        checked={selectedOption === "option2"}
+        value="fahrenheit"
+        checked={selectedOption === "fahrenheit"}
         onChange={handleOptionChange}
       />
-      <label htmlFor="option2">Fahrenheit</label>
+      <label htmlFor="fahrenheit">Fahrenheit</label>
     </div>
   );
 };

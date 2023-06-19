@@ -1,7 +1,12 @@
+import React, { ReactNode } from "react";
 import "./style.css";
 
-const TembarGroup = ({ children }) => {
+interface Props {
+  children: ReactNode;
+}
+
+const TempBarGroup: React.FC<Props> = ({ children }) => {
   return <div className="tempbar__group">{children}</div>;
 };
 
-export default TembarGroup;
+export default TempBarGroup;

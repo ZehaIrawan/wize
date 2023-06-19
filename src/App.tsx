@@ -7,11 +7,6 @@ import weatherData from "./mockup/data.json";
 import { useState } from "react";
 
 function App() {
-  // const fakeWeatherData = Array.from(
-  //   { length: 8 },
-  //   () => Math.floor(Math.random() * 100) + 1,
-  // );
-
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const previousDate = () => {
@@ -30,19 +25,30 @@ function App() {
     (item) => item.dt_txt.slice(8, 10) === currentDate.getDate().toString(),
   );
 
-  console.log(filteredWeatherData);
+  const [selectedOption, setSelectedOption] = useState<string>("celcius");
+
   return (
     <>
-      <RadioButton />
+      <RadioButton
+        selectedOption={selectedOption}
+        setSelectedOption={setSelectedOption}
+      />
 
       <InfoCard
+        selectedOption={selectedOption}
         previousDate={previousDate}
         nextDate={nextDate}
         weatherData={filteredWeatherData[0]}
       />
       <TembarGroup>
         {filteredWeatherData.map((item) => {
-          return <TembBar key={item.dt} weatherData={item} />;
+          return (
+            <TembBar
+              key={item.dt}
+              weatherData={item}
+              selectedOption={selectedOption}
+            />
+          );
         })}
       </TembarGroup>
       {/* <div className="overlay"></div> */}
