@@ -1,0 +1,18 @@
+ .tempbar{
+  background-color: #35526D;
+  height: 120px;
+  width: 38px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.tempbar__temp{
+  background-color: #F6D476;
+  height: 20%;
+  /* dyanimic heihg */
+  border-radius: 0px 0px 8px 8px;
+  /* if full height */
+  /* border-radius: 8px; */
+}
