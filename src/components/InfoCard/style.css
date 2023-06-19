@@ -34,10 +34,33 @@
   position: absolute;
   left: 270px;
   bottom:100px;
+  z-index: 10;
 }
 
 .prev-button{
   position: absolute;
   right: 270px;
   bottom:100px;
+  z-index: 10;
+}
+
+.shadow-info-card__left{
+  background-color: #0A457B;
+  border-radius: 0px 20px 20px 0px;
+  height: 200px;
+  width: 40px;
+  position: absolute;
+  right: 275px;
+  opacity: 0.2;
+}
+
+
+.shadow-info-card__right{
+  background-color: #0A457B;
+  border-radius:20px 0px 0px 20px;
+  height: 200px;
+  width: 40px;
+  position: absolute;
+  left: 275px;
+  opacity: 0.2;
 }
