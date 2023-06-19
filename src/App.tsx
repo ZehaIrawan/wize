@@ -1,7 +1,9 @@
 import "./App.css";
 import InfoCard from "./components/InfoCard/InfoCard";
+import RadioButton from "./components/RadioButton/RadioButton";
 import TembBar from "./components/TempBar/TempBar";
 import TembarGroup from "./components/TempBarGroup/TembarGroup";
+import weatherClear from "./assets/Weather=Clear, Is Current=True.svg";
 
 function App() {
   const weatherData = Array.from(
@@ -11,6 +13,10 @@ function App() {
 
   return (
     <>
+      <img src={weatherClear}></img>
+
+      <RadioButton />
+
       <InfoCard />
       <TembarGroup>
         {weatherData.map((item, index) => {
