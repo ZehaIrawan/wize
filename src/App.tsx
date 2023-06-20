@@ -27,6 +27,16 @@ function App() {
 
   const [selectedOption, setSelectedOption] = useState<string>("celcius");
 
+  const lowestTemp = filteredWeatherData.reduce((minTemp, item) => {
+    const temperature = item.main.temp;
+    return temperature < minTemp ? temperature : minTemp;
+  }, Infinity);
+
+  const highestTemp = filteredWeatherData.reduce((maxTemp, item) => {
+    const temperature = item.main.temp;
+    return temperature > maxTemp ? temperature : maxTemp;
+  }, -Infinity);
+
   return (
     <>
       <RadioButton
@@ -44,6 +54,8 @@ function App() {
         {filteredWeatherData.map((item) => {
           return (
             <TembBar
+              lowestTemp={lowestTemp}
+              highestTemp={highestTemp}
               key={item.dt}
               weatherData={item}
               selectedOption={selectedOption}

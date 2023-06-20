@@ -3,6 +3,8 @@ import "./style.css";
 import { celsiusToFahrenheit } from "../../utils/tempConverter";
 
 interface Props {
+  lowestTemp: number;
+  highestTemp: number;
   selectedOption: string;
   weatherData: {
     main: {
@@ -23,20 +25,26 @@ const TempBar: React.FC<Props> = (props) => {
     }
   };
 
-
-
   const getHour = (dt_txt: string) => {
     const dtTxt = dt_txt.slice(11, 13);
     return dtTxt;
   };
 
+  const temperature = props.weatherData.main.temp;
+  const minHeight = 20;
+  const maxHeight = 70;
+
+  // Calculate the scaled height based on the temperature range
+  const scaledHeight =
+    ((temperature - props.lowestTemp) /
+      (props.highestTemp - props.lowestTemp)) *
+      (maxHeight - minHeight) +
+    minHeight;
+
   return (
     <div className="tempbar_container">
       <div className="tempbar">
-        <div
-          className="tempbar__temp"
-          style={{ height: `${props.weatherData.main.temp}px` }}
-        >
+        <div className="tempbar__temp" style={{ height: `${scaledHeight}%` }}>
           {getFinalTemp()}°
         </div>
       </div>
