@@ -8,6 +8,7 @@ interface Props {
     main: {
       temp: number;
     };
+    dt_txt: string;
   };
 }
 
@@ -22,14 +23,24 @@ const TempBar: React.FC<Props> = (props) => {
     }
   };
 
+
+
+  const getHour = (dt_txt: string) => {
+    const dtTxt = dt_txt.slice(11, 13);
+    return dtTxt;
+  };
+
   return (
-    <div className="tempbar">
-      <div
-        className="tempbar__temp"
-        style={{ height: `${props.weatherData.main.temp}px` }}
-      >
-        {getFinalTemp()}°
+    <div className="tempbar_container">
+      <div className="tempbar">
+        <div
+          className="tempbar__temp"
+          style={{ height: `${props.weatherData.main.temp}px` }}
+        >
+          {getFinalTemp()}°
+        </div>
       </div>
+      <span className="tempbar_hour">{getHour(props.weatherData.dt_txt)}</span>
     </div>
   );
 };
