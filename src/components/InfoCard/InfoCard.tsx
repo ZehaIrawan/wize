@@ -41,12 +41,14 @@ const InfoCard: React.FC<Props> = (props) => {
   const handleNextDate = () => {
     if (nextNumber === 0) return;
     setNextNumber(nextNumber - 1);
+    if (prevNumber !== 5) setPrevNumber(prevNumber + 1);
     props.nextDate();
   };
 
   const handlePreviousDate = () => {
     if (prevNumber === 0) return;
     setPrevNumber(prevNumber - 1);
+    if (nextNumber !== 5) setNextNumber(nextNumber + 1);
     props.previousDate();
   };
 
