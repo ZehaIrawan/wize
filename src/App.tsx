@@ -50,7 +50,7 @@ function App(): JSX.Element {
       setIsLoading(true);
       try {
         const response: AxiosResponse = await axios.get(
-          "http://api.openweathermap.org/data/2.5/forecast",
+          "https://api.openweathermap.org/data/2.5/forecast",
           {
             params: {
               q: "Kathmandu",
