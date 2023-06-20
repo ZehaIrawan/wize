@@ -1,4 +1,5 @@
 import React, { ChangeEvent } from "react";
+import "./style.css";
 
 interface Props {
   selectedOption: string;
@@ -14,7 +15,7 @@ const RadioButton: React.FC<Props> = ({
   };
 
   return (
-    <div>
+    <div className="radio-container">
       <input
         className="custom-radio-button"
         type="radio"
