@@ -45,7 +45,8 @@ function App(): JSX.Element {
           {
             params: {
               q: "Kathmandu",
-              appId: "11161feb64ba65936332e6341f7b2d06",
+              // @ts-ignore:next-line
+              appId: import.meta.env.VITE_WEATHER_API_KEY,
               cnt: 40,
               units: "metric",
             },
@@ -69,8 +70,6 @@ function App(): JSX.Element {
       ),
     );
   }, [currentDate, weatherData]);
-
-  console.log(weatherData, "weatherData");
 
   const [selectedOption, setSelectedOption] = useState<string>("celcius");
 

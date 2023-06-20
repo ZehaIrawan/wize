@@ -23,8 +23,6 @@ interface Props {
 }
 
 const InfoCard: React.FC<Props> = (props) => {
-  console.log(props, "props");
-
   let weatherIcon: string;
 
   switch (props.weatherData.weather[0].main) {
