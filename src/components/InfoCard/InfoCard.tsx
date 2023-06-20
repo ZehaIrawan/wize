@@ -5,6 +5,7 @@ import nextIcon from "../../assets/Next Card.svg";
 import previousIcon from "../../assets/Previous Card.svg";
 import rainIcon from "../../assets/Weather=Rain, Is Current=True.svg";
 import thunderIcon from "../../assets/Weather=Thunder, Is Current=True.svg";
+import drizzleIcon from "../../assets/Weather=Showers, Is Current=True.svg";
 import { celsiusToFahrenheit } from "../../utils/tempConverter";
 
 interface Props {
@@ -33,6 +34,12 @@ const InfoCard: React.FC<Props> = (props) => {
       break;
     case "Thunderstorm":
       weatherIcon = thunderIcon;
+      break;
+    case "Clear":
+      weatherIcon = clearIcon;
+      break;
+    case "Drizzle":
+      weatherIcon = drizzleIcon;
       break;
     default:
       weatherIcon = clearIcon;
