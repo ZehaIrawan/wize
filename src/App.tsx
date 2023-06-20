@@ -5,6 +5,7 @@ import TempBar from "./components/TempBar/TempBar";
 import TempBarGroup from "./components/TempBarGroup/TempBarGroup";
 import { useState, useEffect } from "react";
 import axios, { AxiosResponse } from "axios";
+import Skeleton from "./components/Skeleton/Skeleton";
 
 interface WeatherDataItem {
   weather: {
@@ -91,8 +92,7 @@ function App(): JSX.Element {
     return temperature > maxTemp ? temperature : maxTemp;
   }, -Infinity);
 
-  if (isLoading || filteredWeatherData.length === 0)
-    return <div>Loading...</div>;
+  if (isLoading || filteredWeatherData.length === 0) return <Skeleton />;
 
   return (
     <>
