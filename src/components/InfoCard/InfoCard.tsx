@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 import clearIcon from "../../assets/Weather=Clear, Is Current=True.svg";
 import nextIcon from "../../assets/Next Card.svg";
@@ -23,8 +23,10 @@ interface Props {
 }
 
 const InfoCard: React.FC<Props> = (props) => {
-  let weatherIcon: string;
+  const [prevNumber, setPrevNumber] = useState(5);
+  const [nextNumber, setNextNumber] = useState(5);
 
+  let weatherIcon: string;
   switch (props.weatherData.weather[0].main) {
     case "Rain":
       weatherIcon = rainIcon;
@@ -37,10 +39,14 @@ const InfoCard: React.FC<Props> = (props) => {
   }
 
   const handleNextDate = () => {
+    if (nextNumber === 0) return;
+    setNextNumber(nextNumber - 1);
     props.nextDate();
   };
 
   const handlePreviousDate = () => {
+    if (prevNumber === 0) return;
+    setPrevNumber(prevNumber - 1);
     props.previousDate();
   };
 
@@ -71,11 +77,27 @@ const InfoCard: React.FC<Props> = (props) => {
       <div className="info-card__date">
         {formatDate(props.weatherData.dt_txt)}
       </div>
-      <button onClick={handlePreviousDate} className="prev-button">
-        <img src={previousIcon} alt="Previous Icon" />
+      <button
+        onClick={handlePreviousDate}
+        className="prev-button"
+        disabled={prevNumber === 0}
+      >
+        <img
+          src={previousIcon}
+          alt="Previous Icon"
+          style={{ opacity: prevNumber === 0 ? 0.5 : 1 }}
+        />
       </button>
-      <button onClick={handleNextDate} className="next-button">
-        <img src={nextIcon} alt="Next Icon" />
+      <button
+        onClick={handleNextDate}
+        className="next-button"
+        disabled={nextNumber === 0}
+      >
+        <img
+          src={nextIcon}
+          alt="Next Icon"
+          style={{ opacity: nextNumber === 0 ? 0.5 : 1 }}
+        />
       </button>
 
       <div className="shadow-info-card__left"></div>

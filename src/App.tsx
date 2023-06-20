@@ -25,12 +25,20 @@ function App(): JSX.Element {
   >([]);
 
   const previousDate = () => {
+    if (filteredWeatherData.length === 0) {
+      return;
+    }
+
     const newDate = new Date(currentDate);
     newDate.setDate(newDate.getDate() - 1);
     setCurrentDate(newDate);
   };
 
   const nextDate = () => {
+    if (filteredWeatherData.length === 0) {
+      return;
+    }
+
     const newDate = new Date(currentDate);
     newDate.setDate(newDate.getDate() + 1);
     setCurrentDate(newDate);
